@@ -1,0 +1,568 @@
+
+R version 3.3.1 (2016-06-21) -- "Bug in Your Hair"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin13.4.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> Order <- read.table( "StatSamples_Order_2017-09-21.csv", sep=";", header=TRUE )
+> 
+> Brachycera <- read.table( "StatSamples_Brachycera_2017-09-21.csv", sep=";", header=TRUE )
+> 
+> E <- read.csv( "total_smtp_sorting_data_2017-09-21.csv", header=TRUE )
+> 
+> F <- read.table( "quantitative.RData" )
+> 
+> total <- aggregate( Order$Specimens, by=list(Order$CollID), FUN=sum )
+> 
+> colnames(total) <- c( "CollID", "Total" )
+> total$CollID <- factor( total$CollID )
+> 
+> # Define stats function
+> stats <- function( x )
++ {
++     avg <- mean( x )
++     se <- sd( x ) / sqrt( length( x ) - 1 )
++ 
++     a <- c( avg, avg + 2*se, avg + se, avg - se, avg - 2*se )
++     return ( a )
++ }
+> 
+> # Define estimates function
+> estimates <- function( D, taxon, sampleFraction )
++ {
++     cat( "Estimates for taxon ", taxon, "\n" )
++ 
++     # Get the determined data
++     A <- F[ F$AnalysisTaxon == taxon, ]
++     A <- aggregate( A$Total, by=list(A$EventID), FUN=sum )
++     colnames( A ) <- c( "CollID", "Specimens" )
++ 
++     # Get the statistic sample data
++     B <- D[ D$Taxon == taxon, ]
++     B <- merge( B, total )
++     B$Fraction <- B$Specimens / B$Total
++ 
++     # Print some basic statistics
++     cat( "Determined SMTP samples: ", length( A$CollID ), "\n" )
++     cat( "Estimated fraction of SMTP samples: ", sampleFraction, "\n" )
++     cat( "Summary of SMTP samples\n" )
++     print( summary( A$Specimens ) )
++     cat( "\n" )
++ 
++     cat( "Statistics samples: ", sum( B$Specimens > 0 ), "\n" )
++     cat( "Fraction of statistics samples: ", sum( B$Specimens > 0 ) / length( B$Specimens ), "\n" )
++     cat( "Summary of non-zero statistics samples\n" )
++     print( summary( B$Specimens[ B$Specimens > 0 ] ) )
++     cat( "\n" )
++ 
++     # Wilcox test to see if the statistics samples are typical
++     cat( "Wilcox test\n" )
++     print( wilcox.test( A$Specimens, B$Specimens[ B$Specimens > 0 ] ) )
++ 
++     # T test to see if the statistics samples are typical
++     cat( "T test\n" )
++     print( t.test( A$Specimens, B$Specimens[ B$Specimens > 0 ] ) )
++ 
++     # Plot lin-lin and lin-log prediction of total size
++     x <- B$Specimens[ B$Specimens > 0 ]
++     y <- B$Total[ B$Specimens > 0 ]
++     fileName <- paste( taxon, "linlin.pdf", sep="" )
++     pdf( fileName )
++     plot( x, y, main=taxon )
++     dev.off()
++     fileName <- paste( taxon, "loglin.pdf", sep="" )
++     pdf( fileName )
++     plot( log(x), y, main=taxon )
++     dev.off()
++ 
++     # Fit a linlin model
++     fit <- lm( y~x+0 )
++     print( summary(fit) )
++     k1 <- coefficients( fit ) [1]
++ 
++     # Fit a loglin model
++     fit <- lm( y~log(x) + 0 )
++     print( summary(fit) )
++     k2 <- coefficients( fit ) [1]
++ 
++     # Use the group to estimate the total SMTP size
++     estimatedCatch <- mean( A$Specimens ) * 1910 * sampleFraction
++     x <- estimatedCatch / stats( B$Fraction ) / 1000000
++     cat( "Estimated catch using all statistics samples (millions)\n" )
++     print( x )
++     cat( "\n" )
++     cat( "Estimated catch using non-zero statistics samples and estimated SMTP sample fraction (millions)\n" )
++     x <- ( mean( A$Specimens ) / stats( B$Fraction[ B$Specimens > 0 ] ) ) * 1910  / 1000000
++     print( x )
++     cat( "\n" )
++     cat( "Estimated catch using linlin model\n" )
++     x <- k1 * mean( A$Specimens ) * 1910 / 1000000
++     print( x )
++     cat( "\n" )
++     cat( "Estimated catch using loglin model\n" )
++     x <- k2 * mean( log(A$Specimens) ) * 1910 / 1000000
++     print( x )
++     cat( "\n" )
++ 
++ }
+> 
+> # Use total number specimens for statistics samples to compute total
+> cat( "Estimate based on total in stats samples\n" )
+Estimate based on total in stats samples
+> x <- stats( total$Total ) * 1910 / 1000000
+> y <- c ( x[1], x[5], x[4], x[3], x[2] )
+> cat( y, "\n\n" )
+19.80336 10.9423 15.37283 24.23388 28.66441 
+
+> 
+> # Use Phoridae from Order
+> estimates( Order, "Phoridae", 0.97 )
+Estimates for taxon  Phoridae 
+Determined SMTP samples:  103 
+Estimated fraction of SMTP samples:  0.97 
+Summary of SMTP samples
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    1.0    90.5   328.0   428.5   584.5  1979.0 
+
+Statistics samples:  15 
+Fraction of statistics samples:  0.9375 
+Summary of non-zero statistics samples
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      1     303     411    1109    1219    5907 
+
+Wilcox test
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  A$Specimens and B$Specimens[B$Specimens > 0]
+W = 596.5, p-value = 0.1562
+alternative hypothesis: true location shift is not equal to 0
+
+T test
+
+	Welch Two Sample t-test
+
+data:  A$Specimens and B$Specimens[B$Specimens > 0]
+t = -1.6147, df = 14.308, p-value = 0.1282
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -1581.561   221.426
+sample estimates:
+mean of x mean of y 
+  428.466  1108.533 
+
+
+Call:
+lm(formula = y ~ x + 0)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-11195.6    831.6   3584.2   7921.0  17664.8 
+
+Coefficients:
+  Estimate Std. Error t value Pr(>|t|)    
+x    5.842      1.161    5.03 0.000184 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 8636 on 14 degrees of freedom
+Multiple R-squared:  0.6437,	Adjusted R-squared:  0.6183 
+F-statistic:  25.3 on 1 and 14 DF,  p-value: 0.0001841
+
+
+Call:
+lm(formula = y ~ log(x) + 0)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+ -9687  -6497  -1858   4713  12155 
+
+Coefficients:
+       Estimate Std. Error t value Pr(>|t|)    
+log(x)   1971.4      283.2   6.961 6.65e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 6850 on 14 degrees of freedom
+Multiple R-squared:  0.7758,	Adjusted R-squared:  0.7598 
+F-statistic: 48.45 on 1 and 14 DF,  p-value: 6.648e-06
+
+Estimated catch using all statistics samples (millions)
+[1]  9.727201  6.662023  7.907981 12.633525 18.016573
+
+Estimated catch using non-zero statistics samples and estimated SMTP sample fraction (millions)
+[1]  9.401289  6.524297  7.702926 12.060403 16.817024
+
+Estimated catch using linlin model
+     x 
+4.7809 
+
+Estimated catch using loglin model
+  log(x) 
+19.78562 
+
+> 
+> # Use Coleoptera from Order
+> estimates( Order, "Coleoptera", 0.94 )
+Estimates for taxon  Coleoptera 
+Determined SMTP samples:  103 
+Estimated fraction of SMTP samples:  0.94 
+Summary of SMTP samples
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1.00    5.50   18.00   48.72   57.00  330.00 
+
+Statistics samples:  16 
+Fraction of statistics samples:  1 
+Summary of non-zero statistics samples
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    1.0    32.5    85.5   295.4   230.8  2260.0 
+
+Wilcox test
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  A$Specimens and B$Specimens[B$Specimens > 0]
+W = 490, p-value = 0.009345
+alternative hypothesis: true location shift is not equal to 0
+
+T test
+
+	Welch Two Sample t-test
+
+data:  A$Specimens and B$Specimens[B$Specimens > 0]
+t = -1.7134, df = 15.066, p-value = 0.1071
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -553.5134   60.0753
+sample estimates:
+mean of x mean of y 
+ 48.71845 295.43750 
+
+
+Call:
+lm(formula = y ~ x + 0)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+ -8740   1372   4395   8270  21643 
+
+Coefficients:
+  Estimate Std. Error t value Pr(>|t|)    
+x   15.905      3.721   4.274 0.000665 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 9385 on 15 degrees of freedom
+Multiple R-squared:  0.5492,	Adjusted R-squared:  0.5191 
+F-statistic: 18.27 on 1 and 15 DF,  p-value: 0.0006652
+
+
+Call:
+lm(formula = y ~ log(x) + 0)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-9606.4 -5540.2    84.7  2261.6 10972.6 
+
+Coefficients:
+       Estimate Std. Error t value Pr(>|t|)    
+log(x)   2651.6      309.9   8.556 3.73e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 5764 on 15 degrees of freedom
+Multiple R-squared:  0.8299,	Adjusted R-squared:  0.8186 
+F-statistic:  73.2 on 1 and 15 DF,  p-value: 3.729e-07
+
+Estimated catch using all statistics samples (millions)
+[1]  4.464146  2.839800  3.471352  6.252273 10.430071
+
+Estimated catch using non-zero statistics samples and estimated SMTP sample fraction (millions)
+[1]  4.749091  3.021064  3.692927  6.651355 11.095820
+
+Estimated catch using linlin model
+       x 
+1.480033 
+
+Estimated catch using loglin model
+  log(x) 
+14.46821 
+
+> 
+> # Use Trichoptera from Order
+> estimates( Order, "Trichoptera", 0.62 )
+Estimates for taxon  Trichoptera 
+Determined SMTP samples:  108 
+Estimated fraction of SMTP samples:  0.62 
+Summary of SMTP samples
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1.00    2.00    5.00   32.85   11.25 2255.00 
+
+Statistics samples:  7 
+Fraction of statistics samples:  0.4375 
+Summary of non-zero statistics samples
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1.00    1.50    3.00   25.43   12.00  147.00 
+
+Wilcox test
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  A$Specimens and B$Specimens[B$Specimens > 0]
+W = 406.5, p-value = 0.7419
+alternative hypothesis: true location shift is not equal to 0
+
+T test
+
+	Welch Two Sample t-test
+
+data:  A$Specimens and B$Specimens[B$Specimens > 0]
+t = 0.2545, df = 23.851, p-value = 0.8013
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -52.79656  67.64312
+sample estimates:
+mean of x mean of y 
+ 32.85185  25.42857 
+
+
+Call:
+lm(formula = y ~ x + 0)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+ -3333   3867  16592  17341  27025 
+
+Coefficients:
+  Estimate Std. Error t value Pr(>|t|)
+x    181.3      112.0   1.619    0.157
+
+Residual standard error: 16580 on 6 degrees of freedom
+Multiple R-squared:  0.3039,	Adjusted R-squared:  0.1879 
+F-statistic:  2.62 on 1 and 6 DF,  p-value: 0.1567
+
+
+Call:
+lm(formula = y ~ log(x) + 0)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-6078.0   778.3  4521.0  9293.7 27206.0 
+
+Coefficients:
+       Estimate Std. Error t value Pr(>|t|)  
+log(x)     5890       2089   2.819   0.0304 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 13030 on 6 degrees of freedom
+Multiple R-squared:  0.5698,	Adjusted R-squared:  0.4982 
+F-statistic: 7.949 on 1 and 6 DF,  p-value: 0.03038
+
+Estimated catch using all statistics samples (millions)
+[1]   71.75233   28.87376   41.17738  278.66932 -147.93197
+
+Estimated catch using non-zero statistics samples and estimated SMTP sample fraction (millions)
+[1]   50.63169   20.38739   29.06960  196.04948 -104.72332
+
+Estimated catch using linlin model
+       x 
+11.37374 
+
+Estimated catch using loglin model
+  log(x) 
+19.26169 
+
+> 
+> # Use Dolichopodidae from Brachycera
+> estimates( Brachycera, "Dolichopodidae", 0.77 )
+Estimates for taxon  Dolichopodidae 
+Determined SMTP samples:  390 
+Estimated fraction of SMTP samples:  0.77 
+Summary of SMTP samples
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    1.0     3.0    17.5   110.6    55.0 11260.0 
+
+Statistics samples:  11 
+Fraction of statistics samples:  0.6875 
+Summary of non-zero statistics samples
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00   15.00   20.00   87.45  104.50  375.00 
+
+Wilcox test
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  A$Specimens and B$Specimens[B$Specimens > 0]
+W = 1651, p-value = 0.1923
+alternative hypothesis: true location shift is not equal to 0
+
+T test
+
+	Welch Two Sample t-test
+
+data:  A$Specimens and B$Specimens[B$Specimens > 0]
+t = 0.48342, df = 28.468, p-value = 0.6325
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -74.97368 121.33638
+sample estimates:
+mean of x mean of y 
+110.63590  87.45455 
+
+
+Call:
+lm(formula = y ~ x + 0)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+ -9874   2387   3621  13796  21977 
+
+Coefficients:
+  Estimate Std. Error t value Pr(>|t|)   
+x    79.23      24.23   3.269  0.00844 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 11700 on 10 degrees of freedom
+Multiple R-squared:  0.5167,	Adjusted R-squared:  0.4683 
+F-statistic: 10.69 on 1 and 10 DF,  p-value: 0.008438
+
+
+Call:
+lm(formula = y ~ log(x) + 0)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+ -8941  -5068  -1422   5063  11007 
+
+Coefficients:
+       Estimate Std. Error t value Pr(>|t|)    
+log(x)   3866.4      538.5    7.18    3e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 6783 on 10 degrees of freedom
+Multiple R-squared:  0.8375,	Adjusted R-squared:  0.8213 
+F-statistic: 51.55 on 1 and 10 DF,  p-value: 2.996e-05
+
+Estimated catch using all statistics samples (millions)
+[1]  42.75406  24.52881  31.17305  68.02629 166.36710
+
+Estimated catch using non-zero statistics samples and estimated SMTP sample fraction (millions)
+[1]  38.17326  22.85097  28.58851  57.42637 115.86328
+
+Estimated catch using linlin model
+       x 
+16.74232 
+
+Estimated catch using loglin model
+  log(x) 
+20.42654 
+
+> 
+> # Use Drosophilidae from Brachycera
+> estimates( Brachycera, "Drosophilidae", 0.77 )
+Estimates for taxon  Drosophilidae 
+Determined SMTP samples:  356 
+Estimated fraction of SMTP samples:  0.77 
+Summary of SMTP samples
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    1.0     2.0     5.0    20.8    17.0   433.0 
+
+Statistics samples:  12 
+Fraction of statistics samples:  0.75 
+Summary of non-zero statistics samples
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1.00    4.50   13.00   18.75   31.00   48.00 
+
+Wilcox test
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  A$Specimens and B$Specimens[B$Specimens > 0]
+W = 1670.5, p-value = 0.1963
+alternative hypothesis: true location shift is not equal to 0
+
+T test
+
+	Welch Two Sample t-test
+
+data:  A$Specimens and B$Specimens[B$Specimens > 0]
+t = 0.3642, df = 18.208, p-value = 0.7199
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -9.768641 13.869765
+sample estimates:
+mean of x mean of y 
+ 20.80056  18.75000 
+
+
+Call:
+lm(formula = y ~ x + 0)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-11729.2     94.5   4419.3  16930.8  21248.6 
+
+Coefficients:
+  Estimate Std. Error t value Pr(>|t|)  
+x    372.3      149.5   2.491     0.03 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 12920 on 11 degrees of freedom
+Multiple R-squared:  0.3607,	Adjusted R-squared:  0.3026 
+F-statistic: 6.206 on 1 and 11 DF,  p-value: 0.02997
+
+
+Call:
+lm(formula = y ~ log(x) + 0)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-11828  -5074   3971  12922  16955 
+
+Coefficients:
+       Estimate Std. Error t value Pr(>|t|)   
+log(x)     4366       1170   3.732  0.00331 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 10730 on 11 degrees of freedom
+Multiple R-squared:  0.5588,	Adjusted R-squared:  0.5187 
+F-statistic: 13.93 on 1 and 11 DF,  p-value: 0.00331
+
+Estimated catch using all statistics samples (millions)
+[1] 16.77749  9.17635 11.86384 28.63886 97.73712
+
+Estimated catch using non-zero statistics samples and estimated SMTP sample fraction (millions)
+[1] 16.341714  9.147546 11.729378 26.932280 76.527256
+
+Estimated catch using linlin model
+       x 
+14.79261 
+
+Estimated catch using loglin model
+  log(x) 
+15.12803 
+
+> 
+> 
+> 
+> proc.time()
+   user  system elapsed 
+  1.160   0.059   1.217 

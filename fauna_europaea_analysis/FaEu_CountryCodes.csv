@@ -1,0 +1,78 @@
+ARA_ID;ARA_NAME;ARA_CODE
+1;Andorra;AD
+2;Albania;AL
+3;Austria;AT
+4;Bosnia and Herzegovina;BA
+5;Belgium;BE
+6;Bulgaria;BG
+7;Belarus;BY
+8;Switzerland;CH
+9;Cyprus;CY
+10;Czech Republic;CZ
+11;Germany;DE
+12;Danish mainland;DK-DEN
+13;Faroe Is.;DK-FOR
+14;Estonia;EE
+15;Balearic Is.;ES-BAL
+16;Canary Is.;ES-CNY
+17;Spanish mainland;ES-SPA
+18;Finland;FI
+19;Corsica;FR-COR
+20;French mainland;FR-FRA
+21;Channel Is.;GB-CI
+22;Gibraltar;GB-GI
+23;Britain I.;GB-GRB
+24;Northern Ireland;GB-NI
+25;North Aegean Is.;GR-AEG
+26;Cyclades Is.;GR-CYC
+27;Dodecanese Is.;GR-DOD
+28;Greek mainland;GR-GRC
+29;Crete;GR-KRI
+30;Croatia;HR
+31;Hungary;HU
+32;Ireland;IE
+33;Iceland;IS
+34;Italian mainland;IT-ITA
+35;Sardinia;IT-SAR
+36;Sicily;IT-SI
+37;Liechtenstein;LI
+38;Lithuania;LT
+39;Luxembourg;LU
+40;Latvia;LV
+41;Monaco;MC
+42;Moldova, Republic of;MD
+43;Macedonia;MK
+44;Malta;MT
+45;The Netherlands;NL
+46;Norwegian mainland;NO-NOR
+47;Svalbard & Jan Mayen;NO-SVA
+48;Poland;PL
+49;Azores;PT-AZO
+50;Madeira;PT-MDR
+51;Portuguese mainland;PT-POR
+52;Selvagens Is.;PT-SEL
+53;Romania;RO
+54;Franz Josef Land;RU-FJL
+55;Kaliningrad Region;RU-KGD
+56;Novaya Zemlya;RU-NOZ
+57;Russia Central;RU-RUC
+58;Russia East;RU-RUE
+59;Russia North;RU-RUN
+60;Russia South;RU-RUS
+61;Russia Northwest;RU-RUW
+62;Sweden;SE
+63;Slovenia;SI
+64;Slovakia;SK
+65;San Marino;SM
+66;European Turkey;TR-TUE
+67;Ukraine;UA
+68;Vatican City;VA
+69;Yugoslavia;YU
+70;Afro-tropical region;AFR
+71;Australian region;AUS
+72;East Palaearctic;EPA
+73;North Africa;NAF
+74;Nearctic region;NEA
+75;Neotropical region;NEO
+76;Near East;NRE
+77;Oriental region;ORR
