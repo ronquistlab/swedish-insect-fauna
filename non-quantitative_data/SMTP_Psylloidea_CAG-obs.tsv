@@ -1,0 +1,86 @@
+"Genus"	"Species"	"Author"	"TrapID"	"EventID"
+"1"	"Baeopelma"	"foersteri"	"(Flor, 1861)"	15	1660
+"2"	"Baeopelma"	"foersteri"	"(Flor, 1861)"	1001	1332
+"3"	"Aphalara"	"avicularis"	"Ossiannilsson, 1981"	20	234
+"4"	"Psylla"	"alni"	"(Linnaeus, 1758)"	37	831
+"5"	"Aphalara"	"exilis"	"(Weber & Mohr, 1804)"	31	515
+"6"	"Aphalara"	"exilis"	"(Weber & Mohr, 1804)"	34	548
+"7"	"Aphalara"	"exilis"	"(Weber & Mohr, 1804)"	28	1462
+"8"	"Aphalara"	"exilis"	"(Weber & Mohr, 1804)"	1005	1421
+"9"	"Aphalara"	"exilis"	"(Weber & Mohr, 1804)"	39	607
+"10"	"Aphalara"	"exilis"	"(Weber & Mohr, 1804)"	28	1462
+"11"	"Aphalara"	"exilis"	"(Weber & Mohr, 1804)"	28	488
+"12"	"Bactericera"	"salicivora"	"(Reuter, 1876)"	49	709
+"13"	"Bactericera"	"salicivora"	"(Reuter, 1876)"	49	711
+"14"	"Bactericera"	"acutipennis"	"(Zetterstedt, 1828)"	49	711
+"15"	"Bactericera"	"acutipennis"	"(Zetterstedt, 1828)"	49	708
+"16"	"Bactericera"	"acutipennis"	"(Zetterstedt, 1828)"	49	709
+"17"	"Bactericera"	"acutipennis"	"(Zetterstedt, 1828)"	49	713
+"18"	"Bactericera"	"striola"	"(Flor, 1861)"	49	709
+"19"	"Cacopsylla"	"brunneipennis"	"(Edwards, 1896)"	40	1151
+"20"	"Cacopsylla"	"brunneipennis"	"(Edwards, 1896)"	28	488
+"21"	"Cacopsylla"	"brunneipennis"	"(Edwards, 1896)"	23	445
+"22"	"Cacopsylla"	"crataegi"	"(Schrank, 1801)"	28	1462
+"23"	"Cacopsylla"	"crataegi"	"(Schrank, 1801)"	40	1151
+"24"	"Cacopsylla"	"ledi"	"(Flor, 1861)"	49	709
+"25"	"Cacopsylla"	"melanoneura"	"(Förster, 1848)"	1005	1419
+"26"	"Cacopsylla"	"melanoneura"	"(Förster, 1848)"	1005	1417
+"27"	"Cacopsylla"	"melanoneura"	"(Förster, 1848)"	1006	1422
+"28"	"Cacopsylla"	"melanoneura"	"(Förster, 1848)"	1006	1422
+"29"	"Cacopsylla"	"melanoneura"	"(Förster, 1848)"	40	1153
+"30"	"Cacopsylla"	"melanoneura"	"(Förster, 1848)"	23	445
+"31"	"Cacopsylla"	"melanoneura"	"(Förster, 1848)"	31	515
+"32"	"Cacopsylla"	"melanoneura"	"(Förster, 1848)"	28	1462
+"33"	"Cacopsylla"	"melanoneura"	"(Förster, 1848)"	28	488
+"34"	"Cacopsylla"	"melanoneura"	"(Förster, 1848)"	29	1050
+"35"	"Cacopsylla"	"melanoneura"	"(Förster, 1848)"	29	1047
+"36"	"Cacopsylla"	"melanoneura"	"(Förster, 1848)"	23	445
+"37"	"Cacopsylla"	"myrtilli"	"(W. Wagner, 1947)"	49	709
+"38"	"Cacopsylla"	"pruni"	"(Scopoli, 1763)"	28	1462
+"39"	"Cacopsylla"	"pruni"	"(Scopoli, 1763)"	38	1126
+"40"	"Cacopsylla"	"pruni"	"(Scopoli, 1763)"	29	1050
+"41"	"Cacopsylla"	"pulchra"	"(Zetterstedt, 1838)"	22	771
+"42"	"Cacopsylla"	"pulchra"	"(Zetterstedt, 1838)"	1005	1418
+"43"	"Cacopsylla"	"pulchra"	"(Zetterstedt, 1838)"	1005	1419
+"44"	"Cacopsylla"	"pulchra"	"(Zetterstedt, 1838)"	1005	1417
+"45"	"Cacopsylla"	"pulchra"	"(Zetterstedt, 1838)"	29	1050
+"46"	"Cacopsylla"	"pulchra"	"(Zetterstedt, 1838)"	1006	1422
+"47"	"Cacopsylla"	"pulchra"	"(Zetterstedt, 1838)"	1006	1426
+"48"	"Cacopsylla"	"pulchra"	"(Zetterstedt, 1838)"	1006	1424
+"49"	"Cacopsylla"	"pulchra"	"(Zetterstedt, 1838)"	23	445
+"50"	"Cacopsylla"	"pulchra"	"(Zetterstedt, 1838)"	28	1462
+"51"	"Cacopsylla"	"pulchra"	"(Zetterstedt, 1838)"	29	1052
+"52"	"Cacopsylla"	"rhamnicola"	"(Scott, 1876)"	28	1462
+"53"	"Cacopsylla"	"rhamnicola"	"(Scott, 1876)"	28	488
+"54"	"Cacopsylla"	"rhamnicola"	"(Scott, 1876)"	29	1052
+"55"	"Cacopsylla"	"rhamnicola"	"(Scott, 1876)"	40	1151
+"56"	"Cacopsylla"	"sp."	"Ossiannilsson, 1970"	1001	1329
+"57"	"Cacopsylla"	"melanoneura"	"(Förster, 1848)"	22	836
+"58"	"Cacopsylla"	"melanoneura"	"(Förster, 1848)"	22	838
+"59"	"Cacopsylla"	"melanoneura"	"(Förster, 1848)"	36	825
+"60"	"Cacopsylla"	"sorbi"	"(Linnaeus, 1767)"	36	826
+"61"	"Chamaepsylla"	"hartigii"	"(Flor, 1861)"	49	708
+"62"	"Chamaepsylla"	"hartigii"	"(Flor, 1861)"	36	825
+"63"	"Chamaepsylla"	"hartigii"	"(Flor, 1861)"	1006	1424
+"64"	"Chamaepsylla"	"hartigii"	"(Flor, 1861)"	1006	1426
+"65"	"Psylla"	"alni"	"(Linnaeus, 1758)"	36	829
+"66"	"Psylla"	"alni"	"(Linnaeus, 1758)"	37	835
+"67"	"Psylla"	"alni"	"(Linnaeus, 1758)"	37	834
+"68"	"Psylla"	"alni"	"(Linnaeus, 1758)"	36	829
+"69"	"Psylla"	"alni"	"(Linnaeus, 1758)"	37	833
+"70"	"Psylla"	"alni"	"(Linnaeus, 1758)"	24	1310
+"71"	"Psylla"	"alni"	"(Linnaeus, 1758)"	1006	1426
+"72"	"Psylla"	"alni"	"(Linnaeus, 1758)"	1007	1981
+"73"	"Psylla"	"betulae"	"(Linnaeus, 1758)"	49	708
+"74"	"Psylla"	"betulae"	"(Linnaeus, 1758)"	49	709
+"75"	"Psylla"	"betulaenanae"	"Ossiannilsson, 1970"	49	712
+"76"	"Psylla"	"betulaenanae"	"Ossiannilsson, 1970"	49	708
+"77"	"Psylla"	"betulaenanae"	"Ossiannilsson, 1970"	49	709
+"78"	"Psyllopsis"	"discrepans"	"(Flor, 1861)"	28	1463
+"79"	"Psyllopsis"	"fraxinicola"	"(Förster, 1848)"	28	488
+"80"	"Strophingia"	"ericae"	"(Curtis, 1835)"	38	1450
+"81"	"Trioza"	"remota"	"Förster, 1848"	36	829
+"82"	"Trioza"	"remota"	"Förster, 1848"	31	515
+"83"	"Trioza"	"remota"	"Förster, 1848"	37	834
+"84"	"Trioza"	"remota"	"Förster, 1848"	37	831
+"85"	"Trioza"	"remota"	"Förster, 1848"	37	833

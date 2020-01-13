@@ -1,0 +1,11 @@
+Order;AnalysisTaxon;Filename;Type
+Diptera;Porricondylinae (s lat);SMTP_Cecidomyiidae.xls;qualitative
+Hymenoptera;Cheloninae;SMTP_Cheloninae.xls;qualitative
+Psocoptera;Psocoptera;SMTP_Psocoptera.xls;qualitative
+Homoptera;Psylloidea;SMTP_Psylloidea_CAG_2.xls;qualitative
+Homoptera;Psylloidea;SMTP_Psylloidea_CAG_6.xls;qualitative
+Homoptera;Psylloidea;SMTP_Psylloidea_CAG_7.xls;qualitative
+Homoptera;Psylloidea;SMTP_Psylloidea_CAG_8.xls;qualitative
+Homoptera;Psylloidea;SMTP_Psylloidea_CAG_9.xls;qualitative
+Homoptera;Psylloidea;SMTP_Psylloidea_CAG.xls;qualitative
+Hymenoptera;Rogadinae;SMTP_Rogadinae.xls;qualitative
