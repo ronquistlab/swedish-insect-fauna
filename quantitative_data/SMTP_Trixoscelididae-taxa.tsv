@@ -1,0 +1,6 @@
+"Genus"	"Species"	"Author"	"GUID"	"Notes..errors..synonyms..undescribed.etc."	"Source"	"Taxon.name..computed."
+"1"	"Trixoscelis"	"sp."	"Rondani 1856"	"urn:lsid:faunaeur.org:taxname:66628"	"Fauna Europaea"	"Dyntaxa"	"Trixoscelis sp."
+"2"	"Trixoscelis"	"frontalis"	"(Fallén, 1823)"	"http://dyntaxa.se/taxon/info/250261"	"Dyntaxa"	"Dyntaxa"	"Trixoscelis frontalis"
+"3"	"Trixoscelis"	"marginella"	"(Fallén, 1823)"	"http://dyntaxa.se/taxon/info/250262"	"Dyntaxa"	NA	"Trixoscelis marginella"
+"4"	"Trixoscelis"	"obscurella"	"(Fallén, 1823)"	"http://dyntaxa.se/taxon/info/250263"	"Dyntaxa"	NA	"Trixoscelis obscurella"
+"5"	"Trixoscelis"	"similis"	"Hackman, 1970"	"http://dyntaxa.se/taxon/info/250264"	"Dyntaxa"	NA	"Trixoscelis similis"

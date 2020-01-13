@@ -1,0 +1,118 @@
+Order;AnalysisTaxon;Filename;Type
+Diptera;Acartophthalmidae;SMTP_Acartophthalmidae_VN.xls;quantitative
+Hymenoptera;Adeliini;SMTP_Adeliinae.xls;quantitative
+Hymenoptera;Adelognathinae;SMTP_Adelognathinae.xls;quantitative
+Hymenoptera;Anomaloninae;SMTP_Anomaloninae_HS.xls;quantitative
+Diptera;Anthomyzidae;SMTP_Anthomyzidae.xls;quantitative
+Diptera;Anthomyzidae;SMTP_Anthomyzidae2_JR.xls;quantitative
+Diptera;Asilidae;SMTP_Asilidae.xls;quantitative
+Diptera;Asteiidae;SMTP_Asteiidae_PW.xls;quantitative
+Heteroptera;Auchenorrhyncha excl Delphacidae;SMTP_Auchenorrhyncha.xls;quantitative
+Hymenoptera;Gasteruptiidae+Aulacidae;SMTP_Aulacidae_MF.xls;quantitative
+Diptera;Aulacigastridae;SMTP_Aulacigastridae.xls;quantitative
+Hymenoptera;Banchini;SMTP_Banchinae_MR.xls;quantitative
+Hymenoptera;Bethylidae;SMTP_BethylidaeMF.xls;quantitative
+Hymenoptera;Brachycyrtinae;SMTP_Brachycyrtinae_PM.xls;quantitative
+Diptera;Chloropidae;SMTP_Chloropidae_EPN.xls;quantitative
+Hymenoptera;Chrysididae;SMTP_Chrysididae.xls;quantitative
+Diptera;Clusiidae;SMTP_Clusiidae.xls;quantitative
+Coleoptera;Coleoptera;SMTP_Coleoptera.xls;quantitative
+Coleoptera;Coleoptera;SMTP_Coleoptera2.xls;quantitative
+Diptera;Conopidae;SMTP_Conopidae_FOE.xls;quantitative
+Hymenoptera;Sphecidae (s lat);SMTP_Crabronidae.xls;quantitative
+Dermaptera;Dermaptera;SMTP_Dermaptera_JH.xls;quantitative
+Hymenoptera;Diacritinae;SMTP_Diacritinae_PM.xls;quantitative
+Diptera;Small mycetophiloid families;SMTP_Diadocidia_SM1.xls;quantitative
+Diptera;Small mycetophiloid families;SMTP_Diadocidia_SM2.xls;quantitative
+Diptera;Small mycetophiloid families;SMTP_Diadociidae_etc_JK.xls;quantitative
+Hymenoptera;Diplazontinae;SMTP_Diplazontinae_LF.xls;quantitative
+Diptera;Small mycetophiloid families;SMTP_Ditomyiidae_SM.xls;quantitative
+Diptera;Dixidae;SMTP_Dixidae_S_Martinsson.xls;quantitative
+Diptera;Dolichopodidae;SMTP_Dolichopodidae_1.xls;quantitative
+Diptera;Dolichopodidae;SMTP_Dolichopodidae_2.xls;quantitative
+Diptera;Drosophilidae;SMTP_Drosophilidae_GB.xls;quantitative
+Hymenoptera;Dryinidae+Embolemidae;SMTP_Dryinidae_MO.xls;quantitative
+Diptera;Dryomyzidae;SMTP_Dryomyzidae.xls;quantitative
+Diptera;Dryomyzidae;SMTP_Dryomyzidae2.xls;quantitative
+Hymenoptera;Dryinidae+Embolemidae;SMTP_Embolemidae_MO.xls;quantitative
+Hymenoptera;Omphale;SMTP_Eulophidae_CH_ES.xls;quantitative
+Hymenoptera;Eumeninae;SMTP_Eumeninae_JA_UW_2013.xls;quantitative
+Hymenoptera;Eumeninae;SMTP_Eumeninae_JA.xls;quantitative
+Hymenoptera;Eupelmidae;SMTP_Eupelmidae_LF1.xls;quantitative
+Hymenoptera;Eupelmidae;SMTP_Eupelmidae_LF2.xls;quantitative
+Hymenoptera;Evaniidae;SMTP_Evaniidae_JP.xls;quantitative
+Hymenoptera;Figitidae excl Charipinae;SMTP_Figitidae1.xls;quantitative
+Hymenoptera;Formicidae;SMTP_Formicidae.xls;quantitative
+Hymenoptera;Gasteruptiidae+Aulacidae;SMTP_GasteruptiidaeKvA.xls;quantitative
+Hymenoptera;Gasteruptiidae+Aulacidae;SMTP_GasteruptiidaeNJ.xls;quantitative
+Lepidoptera;Macrolepidoptera;SMTP_Geometridae_C.xls;quantitative
+Diptera;Heleomyzidae+Odiniidae;SMTP_Heleomyzidae1.xls;quantitative
+Hymenoptera;Heloridae;SMTP_Heloridae_C_EM.xls;quantitative
+Lepidoptera;Macrolepidoptera;SMTP_Hesperiidae_C.xls;quantitative
+Hymenoptera;Ichneumoninae excl Phaeogenini;SMTP_Ichneumoninae_1of3_MR.xls;quantitative
+Hymenoptera;Ichneumoninae excl Phaeogenini;SMTP_Ichneumoninae_2of3_MR.xls;quantitative
+Hymenoptera;Ichneumoninae excl Phaeogenini;SMTP_Ichneumoninae_3of3_MR.xls;quantitative
+Hymenoptera;Ismaridae;SMTP_Ismaridae_MK1.xls;quantitative
+Hymenoptera;Ismaridae;SMTP_Ismaridae_MK2.xls;quantitative
+Diptera;Lauxaniidae;SMTP_Lauxaniidae.xls;quantitative
+Diptera;Lonchaeidae;SMTP_Lonchaeidae_v2.xls;quantitative
+Lepidoptera;Macrolepidoptera;SMTP_Macrolepidoptera_0602_ML.xls;quantitative
+Hymenoptera;Meteorini;SMTP_MeteoriniC.xls;quantitative
+Hymenoptera;Small parasitic aculeate families;SMTP_Methochidae.xls;quantitative
+Lepidoptera;Microlepidoptera;SMTP_Microlepidoptera_0602_ML.xls;quantitative
+Diptera;Milichiidae excl Phyllomyza;SMTP_Milichiidae_1.xls;quantitative
+Diptera;Milichiidae excl Phyllomyza;SMTP_Milichiidae_2.xls;quantitative
+Diptera;Muscidae;SMTP_Muscidae_SL.xls;quantitative
+Hymenoptera;Small parasitic aculeate families;SMTP_Mutillidae.xls;quantitative
+Diptera;Small mycetophiloid families;SMTP_Mycetobiidae_SM.xls;quantitative
+Diptera;Mycetophilidae+Keroplatidae;SMTP_Mycetophilidae_etc.xls;quantitative
+Hymenoptera;Mymar;SMTP_Mymar.xls;quantitative
+Hymenoptera;Small parasitic aculeate families;SMTP_Myrmosidae.xls;quantitative
+Hymenoptera;Netelia;SMTP_Netelia_GB.xls;quantitative
+Lepidoptera;Macrolepidoptera;SMTP_Noctuidae_C.xls;quantitative
+Diptera;Heleomyzidae+Odiniidae;SMTP_Odiniidae_PW.xls;quantitative
+Odonata;Odonata;SMTP_Odonata_RH.xls;quantitative
+Odonata;Odonata;SMTP_Odonata_SH.xls;quantitative
+Diptera;Pachyneuridae;SMTP_Pachyneuridae.xls;quantitative
+Diptera;Pallopteridae;SMTP_Pallopteridae_PW.xls;quantitative
+Lepidoptera;Macrolepidoptera;SMTP_Papilionoidea_C.xls;quantitative
+Diptera;Phoridae;SMTP_Phoridae1.xls;quantitative
+Diptera;Phoridae;SMTP_Phoridae2.xls;quantitative
+Diptera;Phoridae;SMTP_Phoridae3.xls;quantitative
+Diptera;Phoridae;SMTP_Phoridae4.xls;quantitative
+Diptera;Phoridae;SMTP_Phoridae5.xls;quantitative
+Diptera;Phoridae;SMTP_Phoridae6.xls;quantitative
+Hymenoptera;Phrudus group;SMTP_Phrudinae_MK.xls;quantitative
+Hymenoptera;Phrudus group;SMTP_Phrudinae2.xls;quantitative
+Hymenoptera;Pimplinae;SMTP_Pimplinae.xls;quantitative
+Hymenoptera;Pimplinae;SMTP_Pimplinae2.xls;quantitative
+Diptera;Piophilidae;SMTP_Piophilidae_PW.xls;quantitative
+Hymenoptera;Platygastridae (s str);SMTP_Platygastridae_PNB_twooftwo.xls;quantitative
+Hymenoptera;Platygastridae (s str);SMTP_Platygastridae_PNB.xls;quantitative
+Plecoptera;Plecoptera;SMTP_Plecoptera_AG.xls;quantitative
+Hymenoptera;Poemeniinae;SMTP_Poemeniinae_Kanders.xls;quantitative
+Hymenoptera;Poemeniinae;SMTP_Poemeniinae_Varga.xls;quantitative
+Hymenoptera;Pompilidae;SMTP_Pompilidae_JA.xls;quantitative
+Hymenoptera;Pompilidae;SMTP_Pompilidae_JA2.xls;quantitative
+Hymenoptera;Rhyssinae;SMTP_Rhyssinae.xls;quantitative
+Hymenoptera;Small parasitic aculeate families;SMTP_Sapygidae.xls;quantitative
+Diptera;Sciomyzidae;SMTP_Sciomyzidae.xls;quantitative
+Diptera;Sepsidae;SMTP_Sepsidae_RM.xls;quantitative
+Strepsiptera;Strepsiptera;SMTP_Strepsiptera_1_RH.xls;quantitative
+Strepsiptera;Strepsiptera;SMTP_Strepsiptera_2.xls;quantitative
+Strepsiptera;Strepsiptera;SMTP_Strepsiptera_C_MH.xls;quantitative
+Hymenoptera;Symphyta;SMTP_Symphyta_1.xls;quantitative
+Hymenoptera;Symphyta;SMTP_Symphyta_2.xls;quantitative
+Diptera;Syrphidae;SMTP_Syrphidae.xls;quantitative
+Diptera;Tephritidae+Ulidiidae;SMTP_Tephritoidea_JS.xls;quantitative
+Hymenoptera;Neorhacodini;SMTP_Tersilochinae_PM.xls;quantitative
+Diptera;Therevidae;SMTP_Therevidae.xls;quantitative
+Thysanoptera;Thysanoptera;SMTP_Thysanoptera_Sverre_Kobro02.xls;quantitative
+Hymenoptera;Small parasitic aculeate families;SMTP_Tiphiidae.xls;quantitative
+Trichoptera;Trichoptera;SMTP_Trichoptera_AG.xls;quantitative
+Trichoptera;Trichoptera;SMTP_Trichoptera_KAJ.xls;quantitative
+Diptera;Trixoscelididae;SMTP_Trixoscelididae.xls;quantitative
+Hymenoptera;Vespinae;SMTP_Vespinae_UW.xls;quantitative
+Hymenoptera;Vespinae;SMTP_Vespinae_WE.xls;quantitative
+Hymenoptera;Xoridinae;SMTP_Xoridinae_MR.xls;quantitative
+Hymenoptera;Xoridinae;SMTP_Xoridinae_Varga.xls;quantitative
